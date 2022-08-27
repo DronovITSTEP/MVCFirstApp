@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCFirstApp", "MVCFirstApp\MVCFirstApp.csproj", "{65159FFE-85FE-4F33-8741-F1143632D1E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCFirstApp", "MVCFirstApp\MVCFirstApp.csproj", "{65159FFE-85FE-4F33-8741-F1143632D1E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCViewDemo", "MVCViewDemo\MVCViewDemo.csproj", "{15545B00-280E-48DA-A4C1-FEF4966A872A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MVCViewDemo", "MVCViewDemo\MVCViewDemo.csproj", "{15545B00-280E-48DA-A4C1-FEF4966A872A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCSecurityDemo", "MVCSecurityDemo\MVCSecurityDemo.csproj", "{BCADDE03-E4FC-49DB-B10A-BB8588DAA0CB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{15545B00-280E-48DA-A4C1-FEF4966A872A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15545B00-280E-48DA-A4C1-FEF4966A872A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15545B00-280E-48DA-A4C1-FEF4966A872A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCADDE03-E4FC-49DB-B10A-BB8588DAA0CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCADDE03-E4FC-49DB-B10A-BB8588DAA0CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCADDE03-E4FC-49DB-B10A-BB8588DAA0CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCADDE03-E4FC-49DB-B10A-BB8588DAA0CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

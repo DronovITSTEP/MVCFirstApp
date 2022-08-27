@@ -8,6 +8,7 @@ namespace MVCViewDemo.Controllers
 {
     public class EmployeeController : Controller
     {
+        private EmpDBContext _dbContext = new EmpDBContext();
         // GET: EmployeeController
         public static List<Employee> employees = new List<Employee>
             {
@@ -38,7 +39,7 @@ namespace MVCViewDemo.Controllers
             /*var employees = from e in GetEmployeeList()
                             orderby e.Id
                             select e;*/
-            var employes = from e in employees
+            var employes = from e in _dbContext.Employees
                             orderby e.Id
                             select e;
             return View(employes);
@@ -59,10 +60,20 @@ namespace MVCViewDemo.Controllers
         // POST: EmployeeController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(/*IFormCollection collection*/ Employee emp)
         {
             try
             {
+                /*Employee emp = new Employee();
+                emp.Name = collection["Name"];
+                DateTime jDate;
+                DateTime.TryParse(collection["CreatedDate"], out jDate);
+                emp.CreatedDate = jDate;
+                string age = collection["Age"];
+                emp.Age = Int32.Parse(age);*/
+                //employees.Add(emp);
+                _dbContext.Employees.Add(emp);
+                _dbContext.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -74,8 +85,8 @@ namespace MVCViewDemo.Controllers
         // GET: EmployeeController/Edit/5
         public ActionResult Edit(int id)
         {
-            List<Employee> emplList = employees;
-            var employee = emplList.Single(m => m.Id == id);
+            //List<Employee> emplList = employees;
+            var employee = _dbContext.Employees.Single(m => m.Id == id);
             return View(employee);
         }
 
@@ -86,8 +97,9 @@ namespace MVCViewDemo.Controllers
         {
             try
             {                
-                var employee = employees.Single(m => m.Id == id);
+                var employee = _dbContext.Employees.Single(m => m.Id == id);
                 TryUpdateModelAsync(employee);
+                _dbContext.SaveChangesAsync();
                 return RedirectToAction("Index");
 
             }
