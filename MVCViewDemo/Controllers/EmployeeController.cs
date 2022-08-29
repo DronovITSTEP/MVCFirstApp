@@ -39,10 +39,17 @@ namespace MVCViewDemo.Controllers
             /*var employees = from e in GetEmployeeList()
                             orderby e.Id
                             select e;*/
-            var employes = from e in _dbContext.Employees
+            /*var employes = from e in _dbContext.Employees
+                            orderby e.Id
+                            select e;*/
+            return View();
+        }
+        public ActionResult Employees()
+        {
+            var employees = from e in GetEmployeeList()
                             orderby e.Id
                             select e;
-            return View(employes);
+            return View(employees);
         }
 
         // GET: EmployeeController/Details/5

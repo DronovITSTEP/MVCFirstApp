@@ -11,9 +11,10 @@ namespace MVCViewDemo.Controllers
             return View();
         }
 
-        public string MyController()
+        public ActionResult MyController()
         {
-            return "Hi, I am a controller";
+            ViewData["Message"] = "Testing method1";
+            return View();
         }
         public IActionResult MyView()
         {

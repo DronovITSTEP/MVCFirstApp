@@ -1,11 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
 namespace MVCViewDemo.Models
 {
     public class Employee
     {
         public int Id { get; set; }
+
         [StringLength(60, MinimumLength = 3)]
         public string Name { get; set; }
 
@@ -20,7 +22,11 @@ namespace MVCViewDemo.Models
     }
 
     public class EmpDBContext : DbContext
-    {
+    {       
         public DbSet<Employee> Employees { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            options.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        }
     }
 }
